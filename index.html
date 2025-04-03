@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website Dog Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 30px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Dog Gallery</h1>
+    </header>
+
+    <div class="gallery">
+        <img src="dog 1.jpg" alt="Cute Dog 1">
+        <img src="dog 2.jpg" alt="Cute Dog 2">
+        <img src="dog 3.jpg" alt="Cute Dog 3">
+        <img src="dog 4.jpg" alt="Cute Dog 4">
+        <img src="dog 5.jpg" alt="Cute Dog 5">
+        <img src="dog 6.jpg" alt="Cute Dog 6">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Dog Gallery. All rights reserved.</p>
+    </footer>
+</body>
+</html>
