@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>League of Legends Champions</title>
   
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   
-  <!-- Custom Styles -->
   <style>
     body {
       background: url('league-of-legends.jpg') no-repeat center center fixed;
@@ -47,6 +45,7 @@
       background-color: #fff;
       color: #000;
     }
+
     .home-button {
       display: inline-block;
       padding: 10px 20px;
@@ -65,11 +64,10 @@
     .home-button:hover {
       background-color: #333;
     }
- 
   </style>
 </head>
 <body>
-    <a href="../index.html" class="home-button">HOME</a>
+  <a href="../index.html" class="home-button">HOME</a>
   <div class="overlay"></div>
 
   <div class="container py-5">
@@ -85,7 +83,6 @@
     </div>
   </div>
 
-  <!-- JavaScript -->
   <script>
     const grid = document.getElementById('championGrid');
     const searchInput = document.getElementById('searchInput');
@@ -94,56 +91,55 @@
 
     async function fetchChampions() {
       try {
-        // Get latest version
         const versionRes = await fetch("https://ddragon.leagueoflegends.com/api/versions.json");
         const versions = await versionRes.json();
         version = versions[0];
 
-        // Get champion data
-        const champRes = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`);
+        const champRes = await fetch("https://ddragon.leagueoflegends.com/cdn/" + version + "/data/en_US/champion.json");
         const data = await champRes.json();
         champions = Object.values(data.data);
+        displayChampions(champions);
       } catch (error) {
         console.error("Error loading champions:", error);
-        grid.innerHTML = `<p class="text-danger">Failed to load champion data.</p>`;
+        grid.innerHTML = '<p class="text-danger">Failed to load champion data.</p>';
       }
     }
 
     function displayChampions(championList) {
-      grid.innerHTML = ""; //displaying in grid
+      grid.innerHTML = "";
       if (championList.length === 0) {
-        grid.innerHTML = `<p class="text-center">No champions found. Try a different search.</p>`;
+        grid.innerHTML = '<p class="text-center">No champions found. Try a different search.</p>';
         return;
       }
 
-      championList.forEach((champ) => {
+      championList.forEach(function(champ) {
         const col = document.createElement("div");
         col.className = "col";
-        col.innerHTML = `
-          <div class="card h-100 text-white">
-            <img src="https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champ.image.full}" 
-                 class="card-img-top" 
-                 alt="${champ.name}">
-            <div class="card-body">
-              <h5 class="card-title">${champ.name}</h5>
-              <p class="card-text">${champ.title}</p>
-            </div>
-          </div>
-        `;
+        col.innerHTML =
+          '<div class="card h-100 text-white">' +
+            '<img src="https://ddragon.leagueoflegends.com/cdn/' + version + '/img/champion/' + champ.image.full + '" class="card-img-top" alt="' + champ.name + '">' +
+            '<div class="card-body">' +
+              '<h5 class="card-title">' + champ.name + '</h5>' +
+              '<p class="card-text">' + champ.title + '</p>' +
+            '</div>' +
+            '<div class="text-center mb-3">' +
+              '<a href="view.html" class="btn btn-outline-secondary rounded-5 btn-sm">View Characters</a>' +
+            '</div>' +
+          '</div>';
         grid.appendChild(col);
       });
     }
 
-    searchInput.addEventListener("input", () => {
+    searchInput.addEventListener("input", function() {
       const term = searchInput.value.toLowerCase();
 
       if (term) {
-        const filtered = champions.filter((champ) =>
-          champ.name.toLowerCase().includes(term)
-        );
+        const filtered = champions.filter(function(champ) {
+          return champ.name.toLowerCase().includes(term);
+        });
         displayChampions(filtered);
       } else {
-        grid.innerHTML = `<p class="text-center">Start typing to search for champions...</p>`;
+        displayChampions(champions);
       }
     });
 
