@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rio de Janeiro, Brazil</title>
   <style>
     html,
@@ -27,6 +27,7 @@
       top: 20px;
       left: 20px;
       z-index: 10;
+      font-size: 1rem;
     }
 
     .home-button:hover {
@@ -60,18 +61,61 @@
       padding: 2rem;
       border-radius: 15px;
       max-width: 700px;
+      width: 90%;
       text-align: center;
       z-index: 2;
       display: none;
     }
 
     .content h1 {
-      font-size: 2.5em;
+      font-size: 2.5rem;
       margin-bottom: 0.5em;
     }
 
     .content p {
-      font-size: 1.2em;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .home-button {
+        top: 10px;
+        left: 10px;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+
+      .content {
+        bottom: 30px;
+        padding: 1.5rem;
+      }
+
+      .content h1 {
+        font-size: 2rem;
+      }
+
+      .content p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content {
+        bottom: 20px;
+        padding: 1rem;
+      }
+
+      .content h1 {
+        font-size: 1.5rem;
+      }
+
+      .content p {
+        font-size: 0.95rem;
+      }
+
+      .home-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
     }
   </style>
 </head>
@@ -80,19 +124,22 @@
 
   <a href="../index.html" class="home-button">HOME</a>
 
-  <img src="brazil.jpg" alt="Rio de Janeiro City" class="fullscreen-img" onclick="showInfo()">
+  <img src="brazil.jpg" alt="Rio de Janeiro City" class="fullscreen-img" onclick="showInfo()" />
 
   <div class="content" id="infoBox">
     <h1>Welcome to Rio de Janeiro</h1>
-    <p>Rio de Janeiro is a vibrant city known for its stunning beaches, lively culture, and iconic landmarks like Christ
-      the Redeemer. From the rhythm of samba to the beauty of Sugarloaf Mountain, Rio offers a breathtaking experience
-      full of energy and charm!</p>
+    <p>
+      Rio de Janeiro is a vibrant city known for its stunning beaches, lively
+      culture, and iconic landmarks like Christ the Redeemer. From the rhythm
+      of samba to the beauty of Sugarloaf Mountain, Rio offers a breathtaking
+      experience full of energy and charm!
+    </p>
   </div>
 
   <script>
     function showInfo() {
       const box = document.getElementById('infoBox');
-      box.style.display = box.style.display === 'none' || box.style.display === '' ? 'block' : 'none';
+      box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
     }
   </script>
 
