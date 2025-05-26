@@ -1,0 +1,73 @@
+body {
+	margin: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #d10c1d; 
+}
+
+.characters-section {
+	padding: 60px 20px;
+	text-align: center;
+	background-color: rgb(235, 36, 36);
+}
+
+.characters-section h2 {
+	font-size: 42px;
+	margin-bottom: 20px;
+	color: #fcf9f9;
+}
+
+.characters-section p {
+	font-size: 18px;
+	color: #f3ecec;
+	max-width: 700px;
+	margin: 0 auto 40px auto;
+}
+
+.character-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 24px;
+}
+
+.character-card {
+	background: #e7e7e2;
+	border-radius: 14px;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+	width: 260px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+}
+
+.character-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.character-card img {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+}
+
+.character-card-content {
+	padding: 20px;
+}
+
+.character-card h3 {
+	margin: 0;
+	font-size: 30px;
+	color: #e60000;
+}
+
+.character-card p {
+	margin-top: 10px;
+	font-size: 20px;
+	color: #0a0a0a;
+	line-height: 1.5;
+}
+
+@keyframes hue-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
